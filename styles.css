@@ -77,6 +77,8 @@ img:last-of-type {
 .slide:nth-child(2n) .title {
   margin-left: 0;
   margin-right: auto;
+  z-index: 3;
+  position: relative;
 }
 
 .slide:nth-child(2n + 1) .title {
@@ -138,8 +140,6 @@ img:last-of-type {
 
 .title:hover {
     background: rgba(250, 248, 246, 0.876);
-  
     -webkit-box-shadow: 5px 5px 7px 18px rgba(249, 249, 247, 0.56);
     box-shadow: 5px 5px 46px 7px rgba(228, 229, 226, 0.56);
-    /* z-index: 0; */
   }

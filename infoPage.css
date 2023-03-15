@@ -196,8 +196,8 @@ blockquote{
 }
 
 button{
-    color: #f92aad;
-    text-shadow: 0 0 2px #100c0f, 0 0 5px #dc078e33, 0 0 10px #fff3;
+    /* color: #f92aad; */
+    /* text-shadow: 0 0 2px #100c0f, 0 0 5px #dc078e33, 0 0 10px #fff3; */
     background: none;
     /* font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace; */
     font-size: 1em;
@@ -222,9 +222,7 @@ button{
     float:right;
 }
 
-button:hover{
-    text-shadow: 0 0 20px #f527a9c6,0 0 10px #faedf5e9;
-}
+
 pre{
     margin:0px !important;
     padding:5px !important;
@@ -234,7 +232,94 @@ pre{
     /* height: auto; */
 }
 
-.glow{
+
+.back-button{
+    font-size: 2em;
+    display: inline;
+    float: left;
+    margin: 15px;
+}
+
+
+.pink-glow-static{
     text-shadow: 0 0 20px #f527a9c6,0 0 10px #faedf5e9;
 
+}
+
+button.pink-glow:hover{
+    text-shadow: 0 0 20px #f527a9c6,0 0 10px #faedf5e9;
+}
+
+
+
+.pink{
+    color: #f92aad !important;
+    text-shadow: 0 0 2px #100c0f, 0 0 5px #dc078e33, 0 0 10px #fff3;
+
+}
+
+.green-glow-static{
+    text-shadow: 0 0 20px #27f538c6,0 0 10px #faedf5e9;
+
+}
+
+.green{
+    color: #38f92a !important;
+    text-shadow: 0 0 2px #100c0f, 0 0 5px #23dc0762, 0 0 10px #fff3;
+
+}
+
+button.green-glow:hover{
+    text-shadow: 0 0 20px #27f538c6,0 0 10px #faedf5e9;
+    /* text-shadow: 0 0 20px #6ff527c6,0 0 10px #faedf5e9; */
+}
+
+.blue-glow-static{
+    text-shadow: 1px 1px 20px #0037ffc6,0 0 20px #edf1fae9;
+
+}
+/* 0720dc62 */
+.blue{
+    color: #4a7cf9 !important;
+    text-shadow: 0 0 2px #100c0f, 0 0 5px #0720dc62, 0 0 10px #fff3;
+
+}
+
+button.blue-glow:hover{
+    /* text-shadow: 0 0 20px #326cffc6,0 0 10px #faedf5e9; */
+    text-shadow: 1px 1px 20px #0037ffc6,0 0 20px #edf1fae9;
+    /* text-shadow: 0 0 20px #6ff527c6,0 0 10px #faedf5e9; */
+}
+
+
+.orange-glow-static{
+    text-shadow: 0 0 20px #f59127c6,0 0 10px #faedf5e9;
+
+}
+
+.orange{
+    color: #f9912a !important;
+    text-shadow: 0 0 2px #100c0f, 0 0 5px #f59127c6, 0 0 10px #fff3;
+
+}
+
+button.orange-glow:hover{
+    text-shadow: 0 0 20px #f59127c6,0 0 10px #faedf5e9;
+    /* text-shadow: 0 0 20px #6ff527c6,0 0 10px #faedf5e9; */
+}
+
+.aqua-glow-static{
+    text-shadow: 0 0 20px #27f2f5c6,0 0 10px #faedf5e9;
+
+}
+
+.aqua{
+    color: #2af9eb !important;
+    text-shadow: 0 0 2px #100c0f, 0 0 5px #27f2f5c6, 0 0 10px #fff3;
+
+}
+
+button.aqua-glow:hover{
+    text-shadow: 0 0 20px #27f2f5c6,0 0 10px #faedf5e9;
+    /* text-shadow: 0 0 20px #6ff527c6,0 0 10px #faedf5e9; */
 }

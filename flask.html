@@ -1,13 +1,134 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <link rel="stylesheet" href="styles.css" />
-    <title>Flask</title>
+    <link rel="stylesheet" href="infoPage.css" />
+    <link href="atom-green.css" rel="stylesheet" />
+    <title>Requests</title>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
   </head>
   <body>
-    <h1>Flask</h1>
-    <p>Info.</p>
+    <script src="prism.js"></script>
+    <script>
+    function copyCode(id) {
+  // Get the text field
+  let copyText = document.getElementById(id);
+  console.log(String(copyText.textContent))
+  navigator.clipboard.writeText(String(copyText.textContent));
+
+}
+    </script>
+        <button class="back-button green-glow green" onclick="window.location.href = 'index.html'"><</button>
+    <div id="container">
+      <div id="content">
+        <div id="about">
+          <h1>
+            <div style="float: left; margin-bottom: 20px" class="green-glow-static">Flask</div>
+            <div class="stage" style="float: right; margin-bottom: 20px">
+              <div class="pyramid3d">
+                <div class="triangle side1"></div>
+                <div class="triangle side2"></div>
+                <div class="triangle side3"></div>
+                <div class="triangle side4"></div>
+              </div>
+            </div>
+          </h1>
+          <h3 style="clear: both" class="subhead">
+            Flask is a micro web framework written in Python. It is classified as a microframework because it does not require particular tools or libraries. It has no database abstraction layer, form validation, or any other components where pre-existing third-party libraries provide common functions.
+          </h3>
+          <p>
+            To install Requests, simply run this simple command in your terminal
+            of choice:
+          </p>
+    <pre class="line-numbers">
+    <button class="green green-glow" onclick="copyCode('code2')">Copy</button>
+    <code class="language-python" id="code2">
+    python -m pip install requests
+    </code>
+    </pre>
+          <br /><br />
+          <h2 style="clear: both" class="subhead">Make a Request</h2>
+          <p>
+            Making a request with Requests is very simple. Begin by importing
+            the Requests module: import requests Now, let’s try to get a
+            webpage. For this example, let’s get GitHub’s public timeline:
+          </p>
+          <br />
+    <pre class="line-numbers">
+    <button class="green green-glow onclick="copyCode('code2')">Copy</button>
+    <code class="language-python" id="code2">
+    r = requests.get('https://api.github.com/events')
+    </code>
+    </pre>
+          <br />
+          <p>
+            Now, we have a Response object called r. We can get all the
+            information we need from this object. Requests’ simple API means
+            that all forms of HTTP request are as obvious. For example, this is
+            how you make an HTTP POST request:
+          </p>
+          <br />
+
+    <pre class="line-numbers">
+    <!-- <button onclick="copyCode('code2')">Copy</button> -->
+    <code class="language-python" id="code2">
+    r = requests.post('https://httpbin.org/post', data={'key':
+    'value'})
+    </code>
+    </pre>
+          <p>
+            Nice, right? What about the other HTTP request types: PUT, DELETE,
+            HEAD and OPTIONS? These are all just as simple:
+          </p>
+    <pre class="line-numbers">
+    <button class="green green-glow onclick="copyCode('code2')">Copy</button>
+    <code class="language-python" id="code2">
+    r = requests.put('https://httpbin.org/put', data={'key': 'value'})
+    r = requests.delete('https://httpbin.org/delete') r =
+    requests.head('https://httpbin.org/get') r =
+    requests.options('https://httpbin.org/get')
+    </code>
+    </pre>
+          <p>
+            That’s all well and good, but it’s also only the start of what
+            Requests can do.
+          </p>
+
+          <h2 style="clear: both" class="subhead">JSON Response Content</h2>
+          <p>
+            There’s also a builtin JSON decoder, in case you’re dealing with
+            JSON data:
+          </p>
+
+    <pre class="line-numbers">
+    <button class="green green-glow onclick="copyCode('code1')">Copy</button>
+    <code class="language-python" id="code1">
+    import requests
+    r=requests.get('https://api.github.com/events') 
+    r.json()
+    [{'repository': {'open_issues': 0, 'url': 'https://github.com/...
+    </code>
+    </pre>
+
+          
+          <p>
+            In case the JSON decoding fails, r.json() raises an exception. For
+            example, if the response gets a 204 (No Content), or if the response
+            contains invalid JSON, attempting r.json() raises
+            requests.exceptions.JSONDecodeError. This wrapper exception provides
+            interoperability for multiple exceptions that may be thrown by
+            different python versions and json serialization libraries.
+          </p>
+          <p>
+            It should be noted that the success of the call to r.json() does not
+            indicate the success of the response. Some servers may return a JSON
+            object in a failed response (e.g. error details with HTTP 500). Such
+            JSON will be decoded and returned. To check that a request is
+            successful, use r.raise_for_status() or check r.status_code is what
+            you expect.
+          </p>
+        </div>
+      </div>
+    </div>
   </body>
 </html>

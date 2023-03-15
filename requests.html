@@ -12,27 +12,18 @@
     <script>
     function copyCode(id) {
   // Get the text field
-  var copyText = document.getElementById(id);
+  let copyText = document.getElementById(id);
   console.log(String(copyText.textContent))
-//   copyText.replace(/(<([^>]+)>)/gi, "");
-
-  // Select the text field
-//   copyText.select();
-//   copyText.setSelectionRange(0, 99999); // For mobile devices
-//   console.log('>>>', copyText.value)
-
-   // Copy the text inside the text field
   navigator.clipboard.writeText(String(copyText.textContent));
 
-  // Alert the copied text
-  alert("Copied code!");
 }
     </script>
+        <button class="back-button pink-glow pink" onclick="window.location.href = 'index.html'"><</button>
     <div id="container">
       <div id="content">
         <div id="about">
           <h1>
-            <div style="float: left; margin-bottom: 20px" class="glow">Requests</div>
+            <div style="float: left; margin-bottom: 20px" class="pink-glow-static">Requests</div>
             <div class="stage" style="float: right; margin-bottom: 20px">
               <div class="pyramid3d">
                 <div class="triangle side1"></div>
@@ -54,7 +45,7 @@
             of choice:
           </p>
     <pre class="line-numbers">
-    <button onclick="copyCode('code2')">Copy</button>
+    <button  class="pink pink-glow" onclick="copyCode('code2')">Copy</button>
     <code class="language-python" id="code2">
     python -m pip install requests
     </code>
@@ -68,7 +59,7 @@
           </p>
           <br />
     <pre class="line-numbers">
-    <button onclick="copyCode('code2')">Copy</button>
+    <button  class="pink pink-glow" onclick="copyCode('code2')">Copy</button>
     <code class="language-python" id="code2">
     r = requests.get('https://api.github.com/events')
     </code>
@@ -94,7 +85,7 @@
             HEAD and OPTIONS? These are all just as simple:
           </p>
     <pre class="line-numbers">
-    <button onclick="copyCode('code2')">Copy</button>
+    <button class="pink pink-glow"  onclick="copyCode('code2')">Copy</button>
     <code class="language-python" id="code2">
     r = requests.put('https://httpbin.org/put', data={'key': 'value'})
     r = requests.delete('https://httpbin.org/delete') r =
@@ -114,7 +105,7 @@
           </p>
 
     <pre class="line-numbers">
-    <button onclick="copyCode('code1')">Copy</button>
+    <button  class="pink pink-glow"  onclick="copyCode('code1')">Copy</button>
     <code class="language-python" id="code1">
     import requests
     r=requests.get('https://api.github.com/events') 
