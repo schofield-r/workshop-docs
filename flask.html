@@ -34,30 +34,61 @@
             </div>
           </h1>
           <h3 style="clear: both" class="subhead">
-            Flask is a micro web framework written in Python. It is classified as a microframework because it does not require particular tools or libraries. It has no database abstraction layer, form validation, or any other components where pre-existing third-party libraries provide common functions.
+            Flask is a micro web framework written in Python. It is classified as a microframework because it does not require particular tools or libraries. It has no database abstraction layer, form validation, or any other components where pre-existing third-party libraries provide common functions. Flask provides configuration and conventions, with sensible defaults, to get started.
           </h3>
           <p>
-            To install Requests, simply run this simple command in your terminal
-            of choice:
+            Use the following command to install Flask:
+          </p>
+              <pre class="line-numbers">
+    <button class="green green-glow" onclick="copyCode('code1')">Copy</button>
+    <code class="language-python" id="code1">
+      $ pip install Flask
+    </code>
+    </pre>
+    <p>
+      Usually your flask app should be set up with a virtual environment but for this exercise we will be skipping that step.
+    </p>
+          <p>
+            A Flask application can be as simple as a single file.
           </p>
     <pre class="line-numbers">
     <button class="green green-glow" onclick="copyCode('code2')">Copy</button>
     <code class="language-python" id="code2">
-    python -m pip install requests
+      from flask import Flask
+
+      app = Flask(__name__)
+      
+      
+      @app.route('/')
+      def hello():
+          return 'Hello, World!'
     </code>
     </pre>
           <br /><br />
-          <h2 style="clear: both" class="subhead">Make a Request</h2>
+          <h2 style="clear: both" class="subhead green-glow-static-soft">A simple application</h2>
+
           <p>
-            Making a request with Requests is very simple. Begin by importing
-            the Requests module: import requests Now, let’s try to get a
-            webpage. For this example, let’s get GitHub’s public timeline:
+            So what did that code do?
+
+First we imported the Flask class. An instance of this class will be our WSGI application.
+
+Next we create an instance of this class. The first argument is the name of the application’s module or package. __name__ is a convenient shortcut for this that is appropriate for most cases. This is needed so that Flask knows where to look for resources such as templates and static files.
+
+We then use the route() decorator to tell Flask what URL should trigger our function.
+
+The function returns the message we want to display in the user’s browser. The default content type is HTML, so HTML in the string will be rendered by the browser.
+
+Save it as hello.py or something similar. Make sure to not call your application flask.py because this would conflict with Flask itself.
+
+To run the application, use the flask command or python -m flask. You need to tell the Flask where your application is with the --app option.
           </p>
           <br />
     <pre class="line-numbers">
-    <button class="green green-glow onclick="copyCode('code2')">Copy</button>
-    <code class="language-python" id="code2">
-    r = requests.get('https://api.github.com/events')
+    <button class="green green-glow onclick="copyCode('code3')">Copy</button>
+    <code class="language-python" id="code3">
+      $ flask --app hello run
+      * Serving Flask app 'hello'
+      * Running on http://127.0.0.1:5000 (Press CTRL+C to quit)
     </code>
     </pre>
           <br />
@@ -70,63 +101,82 @@
           <br />
 
     <pre class="line-numbers">
-    <!-- <button onclick="copyCode('code2')">Copy</button> -->
-    <code class="language-python" id="code2">
+    <button class="green green-glow onclick="copyCode('code4')">Copy</button>
+    <code class="language-python" id="code4">
     r = requests.post('https://httpbin.org/post', data={'key':
     'value'})
     </code>
     </pre>
+
+    <h2 style="clear: both" class="subhead green-glow-static-soft">HTTP Methods</h2>
           <p>
-            Nice, right? What about the other HTTP request types: PUT, DELETE,
-            HEAD and OPTIONS? These are all just as simple:
+            Web applications use different HTTP methods when accessing URLs. You should familiarize yourself with the HTTP methods as you work with Flask. By default, a route only answers to GET requests. You can use the methods argument of the route() decorator to handle different HTTP methods.
           </p>
     <pre class="line-numbers">
-    <button class="green green-glow onclick="copyCode('code2')">Copy</button>
-    <code class="language-python" id="code2">
-    r = requests.put('https://httpbin.org/put', data={'key': 'value'})
-    r = requests.delete('https://httpbin.org/delete') r =
-    requests.head('https://httpbin.org/get') r =
-    requests.options('https://httpbin.org/get')
+    <button class="green green-glow onclick="copyCode('code5')">Copy</button>
+    <code class="language-python" id="code5">
+      from flask import request
+
+      @app.route('/login', methods=['GET', 'POST'])
+      def login():
+          if request.method == 'POST':
+              return do_the_login()
+          else:
+              return show_the_login_form()
     </code>
     </pre>
-          <p>
-            That’s all well and good, but it’s also only the start of what
-            Requests can do.
-          </p>
 
-          <h2 style="clear: both" class="subhead">JSON Response Content</h2>
+          <h2 style="clear: both" class="subhead green-glow-static-soft">Rendering Templates</h2>
           <p>
-            There’s also a builtin JSON decoder, in case you’re dealing with
-            JSON data:
+            Generating HTML from within Python is not fun, and actually pretty cumbersome because you have to do the HTML escaping on your own to keep the application secure. Because of that Flask configures the Jinja2 template engine for you automatically.
+          </p>
+          <p>
+            Templates can be used to generate any type of text file. For web applications, you’ll primarily be generating HTML pages, but you can also generate markdown, plain text for emails, any anything else.
+          </p>
+          <p>
+            For a reference to HTML, CSS, and other web APIs, use the <a class="green-glow-static-soft" href="https://developer.mozilla.org/en-US/">MDN Web Docs</a>.
+          </p>
+          <p>
+            To render a template you can use the <a class="green-glow-static-soft" href="https://flask.palletsprojects.com/en/2.2.x/api/#flask.render_template">render_template()</a> method. All you have to do is provide the name of the template and the variables you want to pass to the template engine as keyword arguments. Here’s a simple example of how to render a template:
           </p>
 
     <pre class="line-numbers">
-    <button class="green green-glow onclick="copyCode('code1')">Copy</button>
-    <code class="language-python" id="code1">
-    import requests
-    r=requests.get('https://api.github.com/events') 
-    r.json()
-    [{'repository': {'open_issues': 0, 'url': 'https://github.com/...
+    <button class="green green-glow onclick="copyCode('code6')">Copy</button>
+    <code class="language-python" id="code6">
+      from flask import render_template
+
+      @app.route('/hello/')
+      @app.route('/hello/<name>')
+      def hello(name=None):
+          return render_template('hello.html', name=name)
     </code>
     </pre>
 
           
           <p>
-            In case the JSON decoding fails, r.json() raises an exception. For
-            example, if the response gets a 204 (No Content), or if the response
-            contains invalid JSON, attempting r.json() raises
-            requests.exceptions.JSONDecodeError. This wrapper exception provides
-            interoperability for multiple exceptions that may be thrown by
-            different python versions and json serialization libraries.
+            Flask will look for templates in the templates folder in the root of your project.
           </p>
           <p>
-            It should be noted that the success of the call to r.json() does not
-            indicate the success of the response. Some servers may return a JSON
-            object in a failed response (e.g. error details with HTTP 500). Such
-            JSON will be decoded and returned. To check that a request is
-            successful, use r.raise_for_status() or check r.status_code is what
-            you expect.
+            For templates you can use the full power of Jinja2 templates. Head over to the official <a class="green-glow-static-soft" href="https://jinja.palletsprojects.com/templates/">Jinja2 Template Documentation</a> for more information.
           </p>
+          <p>
+            Here is an example template:
+          </p>
+    <pre class="line-numbers">
+    <button class="green green-glow onclick="copyCode('code7')">Copy</button>
+    <code class="language-html html" id="code7">
+      <!doctype html>
+      <title>Hello from Flask</title>
+      {% if name %}
+        <h1>Hello {{ name }}!</h1>
+      {% else %}
+        <h1>Hello, World!</h1>
+      {% endif %}
+    </code>
+    </pre>
+    <p>
+      Now you can head on over to the <a class="green-glow-static-soft"  href="html.html">HTML section</a> to add some elements to your web page!
+    </p>
         </div>
       </div>
     </div>

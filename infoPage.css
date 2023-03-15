@@ -12,7 +12,7 @@ body {
   font-family: Nunito;
 
       font-weight: 300;
-      font-size: 20px;
+      /* font-size: 30px; */
       line-height: 1.45;
       color: #eee;
       color: rgba(255,255,255,.85);
@@ -34,12 +34,12 @@ body {
       margin: 0;
   }
   h3 {
-      font-size: 1em;
+      font-size: 1.5em;
       font-weight: 300;
       line-height: 1.5;
   }
   p, li {
-      font-size: 1.7em;
+      font-size: 1.2em;
   }
   a {
       font-weight: 700;
@@ -187,6 +187,7 @@ code{
 
 h2{
     font-weight:500;
+    font-size: 1.5em;
 }
 
 blockquote{
@@ -258,8 +259,19 @@ button.pink-glow:hover{
 
 }
 
+
+.pink-glow-static-soft{
+    text-shadow: 0 0 5px #f527a9c6,0 0 2px #faedf5e9;
+
+}
+
 .green-glow-static{
     text-shadow: 0 0 20px #27f538c6,0 0 10px #faedf5e9;
+
+}
+
+.green-glow-static-soft{
+    text-shadow: 0 0 5px #27f538c6,0 0 2px #faedf5e9;
 
 }
 
@@ -292,6 +304,12 @@ button.blue-glow:hover{
 }
 
 
+.blue-glow-static-soft{
+    text-shadow: 0 0 5px #0037ffc6,0 0 2px #faedf5e9;
+
+}
+
+
 .orange-glow-static{
     text-shadow: 0 0 20px #f59127c6,0 0 10px #faedf5e9;
 
@@ -308,6 +326,11 @@ button.orange-glow:hover{
     /* text-shadow: 0 0 20px #6ff527c6,0 0 10px #faedf5e9; */
 }
 
+.orange-glow-static-soft{
+    text-shadow: 0 0 5px #f59127c6,0 0 2px #faedf5e9;
+
+}
+
 .aqua-glow-static{
     text-shadow: 0 0 20px #27f2f5c6,0 0 10px #faedf5e9;
 
@@ -322,4 +345,9 @@ button.orange-glow:hover{
 button.aqua-glow:hover{
     text-shadow: 0 0 20px #27f2f5c6,0 0 10px #faedf5e9;
     /* text-shadow: 0 0 20px #6ff527c6,0 0 10px #faedf5e9; */
+}
+
+.aqua-glow-static-soft{
+    text-shadow: 0 0 5px #27f2f5c6,0 0 2px #faedf5e9;
+
 }

@@ -45,13 +45,13 @@
             of choice:
           </p>
     <pre class="line-numbers">
-    <button  class="pink pink-glow" onclick="copyCode('code2')">Copy</button>
-    <code class="language-python" id="code2">
-    python -m pip install requests
+    <button  class="pink pink-glow" onclick="copyCode('code1')">Copy</button>
+    <code class="language-python" id="code1">
+    $ python -m pip install requests
     </code>
     </pre>
           <br /><br />
-          <h2 style="clear: both" class="subhead">Make a Request</h2>
+          <h2 style="clear: both" class="subhead pink-glow-static-soft">Make a Request</h2>
           <p>
             Making a request with Requests is very simple. Begin by importing
             the Requests module: import requests Now, let’s try to get a
@@ -74,8 +74,8 @@
           <br />
 
     <pre class="line-numbers">
-    <!-- <button onclick="copyCode('code2')">Copy</button> -->
-    <code class="language-python" id="code2">
+    <button class="pink pink-glow" onclick="copyCode('code3')">Copy</button>
+    <code class="language-python" id="code3">
     r = requests.post('https://httpbin.org/post', data={'key':
     'value'})
     </code>
@@ -85,8 +85,8 @@
             HEAD and OPTIONS? These are all just as simple:
           </p>
     <pre class="line-numbers">
-    <button class="pink pink-glow"  onclick="copyCode('code2')">Copy</button>
-    <code class="language-python" id="code2">
+    <button class="pink pink-glow"  onclick="copyCode('code4')">Copy</button>
+    <code class="language-python" id="code4">
     r = requests.put('https://httpbin.org/put', data={'key': 'value'})
     r = requests.delete('https://httpbin.org/delete') r =
     requests.head('https://httpbin.org/get') r =
@@ -98,19 +98,19 @@
             Requests can do.
           </p>
 
-          <h2 style="clear: both" class="subhead">JSON Response Content</h2>
+          <h2 style="clear: both" class="subhead pink-glow-static-soft">JSON Response Content</h2>
           <p>
             There’s also a builtin JSON decoder, in case you’re dealing with
             JSON data:
           </p>
 
     <pre class="line-numbers">
-    <button  class="pink pink-glow"  onclick="copyCode('code1')">Copy</button>
-    <code class="language-python" id="code1">
+    <button  class="pink pink-glow"  onclick="copyCode('code5')">Copy</button>
+    <code class="language-python" id="code5">
     import requests
     r=requests.get('https://api.github.com/events') 
     r.json()
-    [{'repository': {'open_issues': 0, 'url': 'https://github.com/...
+    * [{'repository': {'open_issues': 0, 'url': 'https://github.com/...
     </code>
     </pre>
 
