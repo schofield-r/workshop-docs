@@ -1,103 +1,132 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <link rel="stylesheet" href="styles.css">
-    <meta charset="utf-8" />
-    <!-- <meta name="viewport" content="width=device-width,initial-scale=1" /> -->
-    <meta
-      name="description"
-      content=""
-    />
-   </head>
+    <head>
+        <link rel="stylesheet" href="styles.css" />
+        <meta charset="utf-8" />
+        <!-- <meta name="viewport" content="width=device-width,initial-scale=1" /> -->
+        <meta name="description" content="" />
+    </head>
     <body>
-<!--       
+        <!--       
     <div id="title" class="slide header">
         <h1>Coding workshop</h1>
       </div> -->
 
-<!-- Container for the image gallery -->
-<div class="container" style="padding: 10px;">
-    <div id="contain"></div>
+        <!-- Container for the image gallery -->
+        <div class="container" style="padding: 10px">
+            <div id="contain"></div>
 
-  
-    <!-- Next and previous buttons -->
-    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-    <a class="next" onclick="plusSlides(1)">&#10095;</a>
-  
-    <!-- Image text -->
-    <div class="caption-container">
-      <p id="caption"></p>
-    </div>
-  
-    <!-- Thumbnail images -->
-    <div class="row" id="thumbContainer">
-      <!-- <div class="column">
-        <img class="demo cursor" src="/codingDayjpg/Slide1.JPG" style="width:100%" onclick="currentSlide(1)">
-      </div>
-      <div class="column">
-        <img class="demo cursor" src="/codingDayjpg/Slide2.jpg" style="width:100%" onclick="currentSlide(2)" alt="Cinque Terre">
-      </div>
-      <div class="column">
-        <img class="demo cursor" src="/codingDayjpg/Slide3.jpg" style="width:100%" onclick="currentSlide(3)" alt="Mountains and fjords">
-      </div>
-      <div class="column">
-        <img class="demo cursor" src="/codingDayjpg/Slide4.jpg" style="width:100%" onclick="currentSlide(4)" alt="Northern Lights">
-      </div>
-      <div class="column">
-        <img class="demo cursor" src="/codingDayjpg/Slide5.jpg" style="width:100%" onclick="currentSlide(5)" alt="Nature and sunrise">
-      </div>
-      <div class="column">
-        <img class="demo cursor" src="/codingDayjpg/Slide6.jpg" style="width:100%" onclick="currentSlide(6)" alt="Snowy Mountains">
-      </div> -->
-    </div>
-  </div>
+            <!-- Next and previous buttons -->
+            <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+            <a class="next" onclick="plusSlides(1)">&#10095;</a>
 
-  <script>
-            let count = 20
+            <!-- Image text -->
+            <div class="caption-container">
+                <p id="caption"></p>
+            </div>
+            
+            <!-- Thumbnail images -->
+            <div class="row" id="thumbContainer"></div>
+        </div>
 
-for(let i=1; i<=count; i++){
-    let elem =`<div class="mySlides">
+        <script>
+            let count = 20;
+
+            for (let i = 1; i <= count; i++) {
+                let elem = `<div class="mySlides">
 <div class="numbertext">${i} / ${count}</div>
 <img src="/codingDayjpg/Slide${i}.JPG" style="maxWidth:50%;maxHeight:40%" />
-</div>`
+</div>`;
 
-let thumb = `<div class="column">
+                let thumb = `<div class="column">
         <img class="demo cursor" src="/codingDayjpg/Slide${i}.JPG" style="width:100%" onclick="currentSlide(${i})" alt="Slide ${i}">
-      </div>`
-    document.getElementById('contain').insertAdjacentHTML("beforeend", elem)
-    document.getElementById('thumbContainer').insertAdjacentHTML("beforeend", thumb)
-        
-    
-}
-    let slideIndex = 1;
-    showSlides(slideIndex);
-    
-    function plusSlides(n) {
-      showSlides(slideIndex += n);
-    }
-    
-    function currentSlide(n) {
-      showSlides(slideIndex = n);
-    }
-    
-    function showSlides(n) {
-      let i;
-      let slides = document.getElementsByClassName("mySlides");
-      let dots = document.getElementsByClassName("demo");
-      let captionText = document.getElementById("caption");
-      if (n > slides.length) {slideIndex = 1}
-      if (n < 1) {slideIndex = slides.length}
-      for (i = 0; i < slides.length; i++) {
-        slides[i].style.display = "none";
-      }
-      for (i = 0; i < dots.length; i++) {
-        dots[i].className = dots[i].className.replace(" active", "");
-      }
-      slides[slideIndex-1].style.display = "block";
-      dots[slideIndex-1].className += " active";
-      captionText.innerHTML = dots[slideIndex-1].alt;
-    }
+      </div>`;
+                document
+                    .getElementById('contain')
+                    .insertAdjacentHTML('beforeend', elem);
+                document
+                    .getElementById('thumbContainer')
+                    .insertAdjacentHTML('beforeend', thumb);
+            }
+            let slideIndex = 1;
+            showSlides(slideIndex);
 
-    </script>
-  </body>
+            function plusSlides(n) {
+                showSlides((slideIndex += n));
+            }
+
+            function currentSlide(n) {
+                showSlides((slideIndex = n));
+            }
+
+            function showSlides(n) {
+                let i;
+                let slides = document.getElementsByClassName('mySlides');
+                let dots = document.getElementsByClassName('demo');
+                let captionText = document.getElementById('caption');
+                if (n > slides.length) {
+                    slideIndex = 1;
+                }
+                if (n < 1) {
+                    slideIndex = slides.length;
+                }
+                for (i = 0; i < slides.length; i++) {
+                    slides[i].style.display = 'none';
+                }
+                for (i = 0; i < dots.length; i++) {
+                    dots[i].className = dots[i].className.replace(
+                        ' active',
+                        ''
+                    );
+                }
+                slides[slideIndex - 1].style.display = 'block';
+                dots[slideIndex - 1].className += ' active';
+                captionText.innerHTML = dots[slideIndex - 1].alt;
+            }
+        </script>
+        <section>
+            <h2>
+                Useful links
+            </h2>
+            <a src="https://requests.readthedocs.io/en/latest/">Requests library documentation</a>
+            <ul>
+                <a src="https://manchester-airport-flights.netlify.app"><li>
+                    Flight API: https://manchester-airport-flights.netlify.app
+                </li></a>
+                <li>
+                    <a src="https://requests.readthedocs.io/en/latest/">Requests library documentation</a>
+                    
+                </li>
+                <li>
+                    
+                    <a src="https://flask.palletsprojects.com/en/2.2.x/">Flask library documentation</a>
+                </li>
+                <li>
+                    
+                    <a src="https://www.w3schools.com/python/python_pip.asp">Python package manager documentation</a>
+                </li>
+                <li>
+                    
+                    <a src="https://www.w3schools.com/html/html_intro.asp">What is HTML?</a>
+                </li>
+                <li>
+                    <a src="https://htmlcheatsheet.com/css/">CSS/HTML editor playground</a>
+                    
+                </li>
+                <li>
+                    
+                    <a src="https://www.w3schools.com/charsets/ref_emoji.asp">Add Emojis to your HTML</a>
+                </li>
+                <li>
+                    
+                    <a src="https://www.freecodecamp.org/learn/2022/responsive-web-design/learn-html-by-building-a-cat-photo-app/step-1">Build a cat photo app with a HTML interactive tutorial</a>
+                </li>
+
+            </ul>
+
+    
+
+
+        </section>
+    </body>
 </html>
